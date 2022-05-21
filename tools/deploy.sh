@@ -37,9 +37,10 @@ help() {
 
 init_giscus() {
   sed -e "s/__giscus_repo__/$GISCUS_REPO/" \ 
-  -e "s/__giscus_repo_id__/$GISCUS_REPO_ID/" \
-  -e "s/__giscus_category__/$GISCUS_CATEGORY/" \
-  -e "s/__giscus_category_id__/$GISCUS_CATEGORY_ID/" > _config.yml
+      -e "s/__giscus_repo_id__/$GISCUS_REPO_ID/" \
+      -e "s/__giscus_category__/$GISCUS_CATEGORY/" \
+      -e "s/__giscus_category_id__/$GISCUS_CATEGORY_ID/" \
+      _config.yml > _config.yml
 }
 
 init() {
