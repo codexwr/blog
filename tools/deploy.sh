@@ -35,12 +35,12 @@ help() {
   echo "     -h, --help               Print this information."
 }
 
-init_giscus() {
-  sed -e "s/__giscus_repo__/$GISCUS_REPO/" \ 
-      -e "s/__giscus_repo_id__/$GISCUS_REPO_ID/" \
-      -e "s/__giscus_category__/$GISCUS_CATEGORY/" \
-      -e "s/__giscus_category_id__/$GISCUS_CATEGORY_ID/" \
-      _config.yml > _config.yml
+inflate_template() {
+  sed -e "s|__giscus_repo__|$GISCUS_REPO|" \
+      -e "s|__giscus_repo_id__|$GISCUS_REPO_ID|" \
+      -e "s|__giscus_category__|$GISCUS_CATEGORY|" \
+      -e "s|__giscus_category_id__|$GISCUS_CATEGORY_ID|" \
+      _config.template.yml > _config.yml
 }
 
 init() {
@@ -125,8 +125,8 @@ deploy() {
 }
 
 main() {
+  inflate_template
   init
-  init_giscus
   build
   test
   resume_site_dir
