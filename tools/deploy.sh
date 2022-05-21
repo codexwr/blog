@@ -125,6 +125,7 @@ deploy() {
 
 main() {
   init
+  init_giscus
   build
   test
   resume_site_dir
