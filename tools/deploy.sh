@@ -35,6 +35,13 @@ help() {
   echo "     -h, --help               Print this information."
 }
 
+init_giscus() {
+  sed -e "s/__giscus_repo__/$GISCUS_REPO/" \ 
+  -e "s/__giscus_repo_id__/$GISCUS_REPO_ID/" \
+  -e "s/__giscus_category__/$GISCUS_CATEGORY/" \
+  -e "s/__giscus_category_id__/$GISCUS_CATEGORY_ID/" > _config.yml
+}
+
 init() {
   if [[ -z ${GITHUB_ACTION+x} && $_opt_dry_run == 'false' ]]; then
     echo "ERROR: It is not allowed to deploy outside of the GitHub Action envrionment."
